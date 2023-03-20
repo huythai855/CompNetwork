@@ -1,5 +1,9 @@
 from socket import *
-
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../OpenAI')))
+print(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from OpenAI import openai
 serverPort = 12000
 
 # create UDP socket
@@ -11,9 +15,8 @@ serverSocket.bind(("", serverPort))
 print("The server is ready to receive")
 
 while True:
-    # read from UDP socket into message, getting client’s address (client IP and port)
     message, clientAddress = serverSocket.recvfrom(2048)
-    modifiedMessage = message.decode().upper()
-    print(modifiedMessage)
-    # send upper case string back to this client
-    serverSocket.sendto(modifiedMessage.encode(), clientAddress)
+    answer = openai.ask_openai(message.decode())
+    serverSocket.sendto(answer.encode(), clientAddress)
+
+serverSocket.close();
