@@ -1,9 +1,11 @@
 from socket import *
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../OpenAI')))
-print(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+print(os.path.abspath(os.path.join(os.path.dirname(__file__), '../OpenAI')))
 from OpenAI import openai
+
 serverPort = 12000
 
 # create UDP socket
