@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+      <%- include('partials/head') %>
+  </head>
+  <body>
+      <%- include('partials/header') %>
+
+      <main>
+          <div class="container">
+              <div class="imessage">
+              </div>
+          </div>
+          <form action="/" class="d-flex" id="type-box">
+              <textarea class="form-control me-2" placeholder="Type here" id="input-message"></textarea>
+              <button class="but btn-outline-success" type="button" id="send-message-button">Send</button>
+          </form>
+      </main>
+
+      <%- include('partials/footer') %>
+      <script src="javascripts/scripts.js"></script>
+  </body>
+</html>
